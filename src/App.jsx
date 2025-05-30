@@ -11,13 +11,13 @@ const App = () => {
             <h2>Natalie Rekai &mdash; Programming Portfolio</h2>
             <ol>
                <li>
-                  Portuguese Verb Practice
+                  <a target='_blank' href='https://verb-application-client.vercel.app/'>Portuguese Verb Practice</a>
                   <ul>
                      <li>
                         Flashcard-style test of conjugation of irregular Portuguese verbs in present, past, perfect,
                         continuous, imperfect and imperative tense.
                      </li>
-                     <li>Built with REACT, MongoDB</li>
+                     <li>Built from scratch with REACT, MongoDB, Node, and Express</li>
                   </ul>
                </li>
             </ol>
