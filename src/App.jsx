@@ -20,10 +20,10 @@ const App = () => {
                <li>
                   <a target='_blank' href='https://arbocobra.github.io/redux-minesweeper/'>Redux Minesweeper</a>
                   <ul>
+                     <li>It's like writing a tic-tac-toe application, only harder</li>
                      <li>
                         Classic Minesweeper, built from scratch using REACT and REDUX
-                     </li>
-                     <li>It's like writing a tic-tac-toe application, only harder</li>
+                     </li>                     
                   </ul>
                </li>
             </ol>
