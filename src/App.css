@@ -4,7 +4,7 @@
   flex-flow: column nowrap;
   height: 98vh;
   box-sizing: border-box;
-  margin: 10px 70px;
+  padding: 10px 70px;
   width: 100%;
 }
 

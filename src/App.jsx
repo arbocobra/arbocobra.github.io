@@ -17,6 +17,15 @@ const App = () => {
                      <li>Built from scratch with REACT, MongoDB, Node, and Express</li>
                   </ul>
                </li>
+               <li>
+                  <a target='_blank' href='https://arbocobra.github.io/redux-minesweeper/'>Redux Minesweeper</a>
+                  <ul>
+                     <li>
+                        Classic Minesweeper, built from scratch using REACT and REDUX
+                     </li>
+                     <li>It's like writing a tic-tac-toe application, only harder</li>
+                  </ul>
+               </li>
             </ol>
           </div>
          </div>
