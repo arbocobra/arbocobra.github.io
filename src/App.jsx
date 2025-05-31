@@ -14,7 +14,7 @@ const App = () => {
                         Flashcard-style test of conjugation of irregular Portuguese verbs in present, past, perfect,
                         continuous, imperfect and imperative tense.
                      </li>
-                     <li>Built from scratch with REACT, MongoDB, Node, and Express</li>
+                     <li>Built from scratch with REACT, MongoDB, Node, and Express. Designed for browser and mobile.</li>
                   </ul>
                </li>
                <li>
@@ -22,7 +22,7 @@ const App = () => {
                   <ul>
                      <li>It's like writing a tic-tac-toe application, only harder</li>
                      <li>
-                        Classic Minesweeper, built from scratch using REACT and REDUX
+                        Classic Minesweeper, built from scratch using REACT and REDUX. Designed for browser and mobile.
                      </li>                     
                   </ul>
                </li>
