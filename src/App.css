@@ -41,3 +41,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+.toggle {
+  font-weight: 500;
+  color: #009aa8;
+  text-decoration: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.closed {
+  height: 0;
+  overflow: hidden;
+}

@@ -1,6 +1,22 @@
+import { useState, useRef } from 'react';
 import './App.css';
+import upArrow from './assets/upArrow.svg'
+import downArrow from './assets/downArrow.svg'
 
 const App = () => {
+   const [toggleOpen, setToggleOpen] = useState(false)   
+   const toggleRef = useRef(null)
+
+   const toggleAccordion = () => {
+      if (toggleOpen) {
+         toggleRef.current.classList.add('closed')
+         setToggleOpen(false)
+      } else {
+         toggleRef.current.classList.remove('closed')
+         setToggleOpen(true)
+      }
+   }
+   
    return (
       <div id='App'>
          <div id='Body'>
@@ -24,6 +40,16 @@ const App = () => {
                      <li>
                         Classic Minesweeper, built from scratch using REACT and REDUX. Designed for browser and mobile.
                      </li>                     
+                  </ul>
+               </li>
+               <li>
+                  <p onClick={toggleAccordion} className='toggle'>Websites Built Using WordPress {toggleOpen ? <img width='20' src={downArrow}/> : <img width='20' src={upArrow}/>}</p>
+                  <ul ref={toggleRef} className='closed'>
+                     <li>All sites built by me using Wordpress and modified themes</li>
+                     <li><a href='https://www.mobilitylaw.com/' target='_blank'>Mobility Law</a></li>
+                     <li><a href='https://senseengineering.com/' target='_blank'>Sense Engineering</a></li>
+                     <li><a href='https://equityici.com/' target='_blank'>EquityICI</a></li>
+                     <li><a href='https://carboniron.ca/' target='_blank'>Carbon & Iron</a></li>
                   </ul>
                </li>
             </ol>
