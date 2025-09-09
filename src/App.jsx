@@ -24,6 +24,15 @@ const App = () => {
             <h2>Natalie Rekai &mdash; Programming Portfolio</h2>
             <ol>
                <li>
+                  <a target='_blank' href='https://verb-application-client.vercel.app/'>That My MP?? (Work in Progress)</a>
+                  <ul>
+                     <li>
+                        When you want to find out who your MP is, and what they are voting for in Parliament. Please keep in mind, this project is <em>in progress</em>. Next step is expanding the information provided about each Bill in MP's voting record.
+                     </li>
+                     <li>Built from scratch with NextJS, fetching data from <a href='https://api.openparliament.ca/' target='_blank'>api.OpenParliament.ca</a> &hearts;</li>
+                  </ul>
+               </li>
+               <li>
                   <a target='_blank' href='https://verb-application-client.vercel.app/'>Portuguese Verb Practice</a>
                   <ul>
                      <li>
