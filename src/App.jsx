@@ -24,7 +24,7 @@ const App = () => {
             <h2>Natalie Rekai &mdash; Programming Portfolio</h2>
             <ol>
                <li>
-                  <a target='_blank' href='https://verb-application-client.vercel.app/'>That My MP?? (Work in Progress)</a>
+                  <a target='_blank' href='https://that-my-mp.vercel.app/'>That My MP?? (Work in Progress)</a>
                   <ul>
                      <li>
                         When you want to find out who your MP is, and what they are voting for in Parliament. Please keep in mind, this project is <em>in progress</em>. Next step is expanding the information provided about each Bill in MP's voting record.
