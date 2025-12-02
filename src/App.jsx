@@ -24,6 +24,20 @@ const App = () => {
             <h2>Natalie Rekai &mdash; Programming Portfolio</h2>
             <ol>
                <li>
+                  <a target='_blank' href='https://character-builder-next.vercel.app/'>Table-Top Game Character Builder</a>
+                  <ul>
+                     <li>
+                        Build and stat-out a playable character using Dungeons & Dragons 5E. This application has selectable classes, backgrounds, abilities and species with built-in special traits and proficiencies.
+                     </li>
+                     <li>
+                        Built from scratch using NextJS, using a PostgreSQL database. Includes option to create a user account to save and edit your characters. Designed for browser and mobile.
+                     </li>
+                     <li>
+                        A complete list of project specifications, as well as current and incoming features can be found <a href='https://character-builder-next.vercel.app/about' target='_blank'>here</a>.
+                     </li>
+                  </ul>
+               </li>
+               <li>
                   <a target='_blank' href='https://that-my-mp.vercel.app/'>That My MP?? (Work in Progress)</a>
                   <ul>
                      <li>
@@ -48,7 +62,7 @@ const App = () => {
                      <li>It's like writing a tic-tac-toe application, only harder</li>
                      <li>
                         Classic Minesweeper, built from scratch using REACT and REDUX. Designed for browser and mobile.
-                     </li>                     
+                     </li>
                   </ul>
                </li>
                <li>
@@ -66,12 +80,9 @@ const App = () => {
          </div>
          <div id='Footer'>
             <div className='footer-container'>
-               <p>&copy; Natalie Rekai, 2025</p>
+               <p>&copy; Natalie Rekai, 2025 &mdash; <a href='https://github.com/arbocobra' target='_blank'>GitHub</a></p>
                <p>
-                  Natalie is also a blacksmith -{' '}
-                  <a href='https://madeforge.com' target='_blank'>
-                     View artist portfolio
-                  </a>
+                  Natalie is also a blacksmith - <a href='https://madeforge.com' target='_blank'>View artist portfolio</a>
                </p>
             </div>
          </div>
