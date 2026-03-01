@@ -1,56 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import "tailwindcss";
+@config '../tailwind.config.js';
+
+@theme {
+  --font-sans: 'Roboto Mono', Helvetica, Arial, sans-serif;
+  --font-serif: 'Spectral', serif;
+  --color-background: var(--color-mist-200);
+  --color-foreground: var(--color-gray-900);
+
+  --animate-slide-up: slideup 500ms ease-out;
+
+  @keyframes slideup {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.dark {
+  --color-background: var(--color-gray-900);
+  --color-foreground: var(--color-white);
+}
+
 #App {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 98vh;
-  box-sizing: border-box;
-  padding: 10px 70px;
-  width: 100%;
+  font-family: var(--font-sans);
+  min-height: 98vh;
 }
 
-#Body {
-  flex: 1 1 auto;
-  display: flex;
-  font-family: "Roboto Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 18px;
+h1, h3, h5 {
+  font-family: var(--font-serif);
 }
 
-.body-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+h2, h4 {
+  font-family: var(--font-sans);
 }
 
-.body-container h2 {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+/* XS Mobile */
+@media (max-width: 639px) {
+  .app-container {
+    @apply p-3 max-w-350 mx-auto
+  }
+  .placeholder-container {
+    @apply flex justify-start flex-1 grow shrink basis-100 
+  }
+  .preview-container {
+    @apply grow shrink basis-100
+  }
+  .preview-image-container {
+    @apply p-2
+  }
+  .preview-text-container > div > div {
+    @apply top-1/2 -translate-y-1/2 text-4xl/12 transition-none text-foreground bg-gray-300/60 dark:bg-gray-800/60 h-fit py-4 px-5 min-w-60
+  }
+  .display-container {
+    @apply h-[95dvh] w-[95dvw]
+  }
+  .display-body-container {
+    @apply flex-col
+  }
+  .display-text-container > div:last-child, .display-image-container {
+    @apply overflow-hidden transition-all transition-discrete duration-300
+  }
+  .toggle-title-container {
+    @apply p-3 text-xl
+  }
 }
 
-.body-container ul li:first-of-type {
-  padding-top: 5px;
+/* SM - BASE */
+@media (min-width: 640px) {
+  .app-container {
+    @apply max-w-150 mx-auto px-3 py-6
+  }
+  .placeholder-container {
+    @apply flex justify-start flex-1 grow shrink basis-100 
+  }
+  .preview-container {
+    @apply grow shrink basis-100
+  }
+  .preview-image-container {
+    @apply p-2
+  }
+  .preview-text-container > div > div {
+    @apply top-1/2 -translate-y-1/2 text-5xl/14 transition-none text-foreground bg-gray-300/60 dark:bg-gray-900/60 h-fit p-6 min-w-80
+  }
+  .display-container {
+    @apply w-9/10
+  }
+  .display-text-container, .display-image-container {
+    @apply flex-1 h-177;
+  }
+  .toggle-title-container {
+    @apply px-5 py-4 text-2xl;
+  }
 }
 
-.body-container ul li:last-of-type {
-  padding-bottom: 10px;
+/* MD */
+@media (min-width: 768px) {
+
 }
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
+/* LG */
+@media (min-width: 1024px) {
+  .app-container {
+    @apply max-w-250
+  }
+  .preview-image-container {
+    @apply px-5 py-4 
+  }
+  .preview-image-container > img {
+    @apply group-hover:scale-110 transition-transform duration-300
+  }
+  .preview-overlay-container {
+    @apply bg-transparent dark:bg-transparent group-hover:bg-gray-900/60 dark:group-hover:bg-gray-800/60 transition-all duration-300
+  }
+  .preview-text-container > div > div {
+    @apply top-0 bottom-0 justify-center items-center text-[50px]/15 translate-y-full group-hover:translate-y-0 transition-all duration-300 h-full bg-transparent min-w-65 text-white
+  }
+  /* .display-container {}
+  .display-body-container {}
+  .display-text-container {}
+  .display-image-container {} */
 }
 
-.toggle {
-  font-weight: 500;
-  color: #009aa8;
-  text-decoration: inherit;
-  margin: 0;
-  padding: 0;
+/* XL */
+@media (min-width: 1280px) {
+  
 }
 
-.closed {
-  height: 0;
-  overflow: hidden;
+/* 2XL */
+@media (min-width: 1536px) {
+  .app-container {
+    @apply max-w-350
+  }
 }

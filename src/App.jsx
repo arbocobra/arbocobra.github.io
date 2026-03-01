@@ -1,91 +1,140 @@
-import { useState, useRef } from 'react';
 import './App.css';
-import upArrow from './assets/upArrow.svg'
-import downArrow from './assets/downArrow.svg'
+import { useState, useEffect } from 'react';
+import clsx from 'clsx';
+import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/16/solid';
+import Footer from './components/Footer';
+import Preview from './components/Preview';
+import Header from './components/Header';
+import Display from './components/Display';
+import images from './assets/image-index';
+import { characterDesc, mpDesc, verbsDesc, minesweeperDesc } from './assets/description-text';
 
 const App = () => {
-   const [toggleOpen, setToggleOpen] = useState(false)   
-   const toggleRef = useRef(null)
+   const [toggleOpen, setToggleOpen] = useState(false);
+   const [display, setDisplay] = useState(false);
+   const [displayObj, setDisplayObj] = useState(null);
 
-   const toggleAccordion = () => {
-      if (toggleOpen) {
-         toggleRef.current.classList.add('closed')
-         setToggleOpen(false)
-      } else {
-         toggleRef.current.classList.remove('closed')
-         setToggleOpen(true)
-      }
+   const toggleAccordion = () => setToggleOpen((prev) => !prev)
+
+   const { mpLoad, mpView, charLoad, charView, minesLoad, minesView, verbsLoad, verbsView, carbonView, senseView, mobilityView, equityView } = images;
+
+   const details = {
+      character: {
+         id: 'character',
+         title: 'Table-Top Game Character Builder',
+         desc: characterDesc,
+         url: 'https://character-builder-next.vercel.app/',
+         git: 'https://github.com/arbocobra/character-builder-next',
+         imageA: charLoad,
+         imageB: charView,
+      },
+      mp: {
+         id: 'mp',
+         title: 'That My MP??',
+         desc: mpDesc,
+         url: 'https://that-my-mp.vercel.app/',
+         git: 'https://github.com/arbocobra/that-my-mp',
+         imageA: mpLoad,
+         imageB: mpView,
+      },
+      verbs: {
+         id: 'verbs',
+         title: 'Portuguese Verb Practice',
+         desc: verbsDesc,
+         url: 'https://verb-application-client.vercel.app/',
+         git: 'https://github.com/arbocobra/verb-application',
+         imageA: verbsLoad,
+         imageB: verbsView,
+      },
+      minesweeper: {
+         id: 'minesweeper',
+         title: 'Redux Minesweeper',
+         desc: minesweeperDesc,
+         url: 'https://arbocobra.github.io/redux-minesweeper/',
+         git: 'https://github.com/arbocobra/redux-minesweeper',
+         imageA: minesLoad,
+         imageB: minesView,
+      },
+   };
+   const wpDetails = {
+      carbon: {
+         id: 'carbon',
+         title: 'Carbon & Iron',
+         url: 'https://carboniron.ca/',
+         image: carbonView,
+      },
+      sense: {
+         id: 'sense',
+         title: 'Sense Engineering',
+         url: 'https://senseengineering.com/',
+         image: senseView,
+      },
+      mobility: {
+         id: 'mobility',
+         title: 'Mobility Law',
+         url: 'https://www.mobilitylaw.com/',
+         image: mobilityView,
+      },
+      equity: {
+         id: 'equity',
+         title: 'Equity ICI',
+         url: 'https://equityici.com/',
+         image: equityView,
+      },
    }
-   
+
+   const openDisplay = (val) => setDisplayObj(details[val]);
+   const closeDisplay = () => setDisplayObj(null);
+   const openURL = (url) => window.open(url, '_blank')
+
+   useEffect(() => {
+      if (displayObj) {
+         setDisplay(true);
+      } else {
+         setDisplay(false);
+      }
+   }, [displayObj]);
+
    return (
-      <div id='App'>
-         <div id='Body'>
-          <div className='body-container'>
-            <h2>Natalie Rekai &mdash; Programming Portfolio</h2>
-            <ol>
-               <li>
-                  <a target='_blank' href='https://character-builder-next.vercel.app/'>Table-Top Game Character Builder</a>
-                  <ul>
-                     <li>
-                        Build and stat-out a playable character using Dungeons & Dragons 5E. This application has selectable classes, backgrounds, abilities and species with built-in special traits and proficiencies.
-                     </li>
-                     <li>
-                        Built from scratch using NextJS, using a PostgreSQL database. Includes option to create a user account to save and edit your characters. Designed for browser and mobile.
-                     </li>
-                     <li>
-                        A complete list of project specifications, as well as current and incoming features can be found <a href='https://character-builder-next.vercel.app/about' target='_blank'>here</a>.
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <a target='_blank' href='https://that-my-mp.vercel.app/'>That My MP?? (Work in Progress)</a>
-                  <ul>
-                     <li>
-                        When you want to find out who your MP is, and what they are voting for in Parliament. Please keep in mind, this project is <em>in progress</em>. Next step is expanding the information provided about each Bill in MP's voting record.
-                     </li>
-                     <li>Built from scratch with NextJS, fetching data from <a href='https://api.openparliament.ca/' target='_blank'>api.OpenParliament.ca</a> &hearts;</li>
-                  </ul>
-               </li>
-               <li>
-                  <a target='_blank' href='https://verb-application-client.vercel.app/'>Portuguese Verb Practice</a>
-                  <ul>
-                     <li>
-                        Flashcard-style test of conjugation of irregular Portuguese verbs in present, past, perfect,
-                        continuous, imperfect and imperative tense.
-                     </li>
-                     <li>Built from scratch with REACT, MongoDB, Node, and Express. Designed for browser and mobile.</li>
-                  </ul>
-               </li>
-               <li>
-                  <a target='_blank' href='https://arbocobra.github.io/redux-minesweeper/'>Redux Minesweeper</a>
-                  <ul>
-                     <li>It's like writing a tic-tac-toe application, only harder</li>
-                     <li>
-                        Classic Minesweeper, built from scratch using REACT and REDUX. Designed for browser and mobile.
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <p onClick={toggleAccordion} className='toggle'>Websites Built Using WordPress {toggleOpen ? <img width='20' src={downArrow}/> : <img width='20' src={upArrow}/>}</p>
-                  <ul ref={toggleRef} className='closed'>
-                     <li>All sites built by me using Wordpress and modified themes</li>
-                     <li><a href='https://www.mobilitylaw.com/' target='_blank'>Mobility Law</a></li>
-                     <li><a href='https://senseengineering.com/' target='_blank'>Sense Engineering</a></li>
-                     <li><a href='https://equityici.com/' target='_blank'>EquityICI</a></li>
-                     <li><a href='https://carboniron.ca/' target='_blank'>Carbon & Iron</a></li>
-                  </ul>
-               </li>
-            </ol>
-          </div>
-         </div>
-         <div id='Footer'>
-            <div className='footer-container'>
-               <p>&copy; Natalie Rekai, 2025 &mdash; <a href='https://github.com/arbocobra' target='_blank'>GitHub</a></p>
-               <p>
-                  Natalie is also a blacksmith - <a href='https://madeforge.com' target='_blank'>View artist portfolio</a>
-               </p>
+      <div id='App' className={clsx('app-container flex flex-col justify-start gap-4', {'h-screen overflow-hidden': display})}>
+         <Header />
+         <div className='flex flex-col items-center gap-8'>
+            <div className='flex justify-start text-3xl/snug sm:text-4xl/snug font-light'>Natalie Rekai &mdash; Programming Portfolio</div>
+            <div className='flex justify-center flex-wrap gap-6'>
+               {Object.keys(details).map((el, i) => (
+                  <Preview
+                     key={`preview-${i}`}
+                     id={el}
+                     open={openDisplay}
+                     image={details[el].imageA}
+                     title={details[el].title}
+                  />
+               ))}
+               <div className='placeholder-container' />
+               <div className='placeholder-container' />
             </div>
+            <div className='flex flex-col gap-6'>
+               <div onClick={toggleAccordion} className='toggle-title-container flex justify-between font-light items-center bg-[#dce1e2] dark:bg-gray-800'>
+                  <div>Websites Built Using WordPress</div>
+                  {toggleOpen ? <ChevronUpIcon className='size-7'/> : <ChevronDownIcon className='size-7' />}
+               </div>
+               <div className={clsx({'flex justify-center flex-wrap gap-6':toggleOpen, 'h-0 overflow-hidden':!toggleOpen})}>
+               {Object.keys(wpDetails).map((el, i) => (
+                  <Preview
+                     key={`wp-preview-${i}`}
+                     id={wpDetails[el].url}
+                     open={openURL}
+                     image={wpDetails[el].image}
+                     title={wpDetails[el].title}
+                  />
+               ))}
+               <div className='placeholder-container' />
+               <div className='placeholder-container' />
+            </div>
+            </div>
+            {display && displayObj && <Display content={displayObj} close={closeDisplay} />}
          </div>
+         <Footer />
       </div>
    );
 };
