@@ -16,7 +16,7 @@ const App = () => {
 
    const toggleAccordion = () => setToggleOpen((prev) => !prev)
 
-   const { mpLoad, mpView, charLoad, charView, minesLoad, minesView, verbsLoad, verbsView, carbonView, senseView, mobilityView, equityView } = images;
+   const { mpLoad, mpView, charLoad, charView, minesLoad, minesView, verbsPreview, verbsLoad, verbsView, carbonView, senseView, mobilityView, equityView } = images;
 
    const details = {
       character: {
@@ -27,6 +27,7 @@ const App = () => {
          git: 'https://github.com/arbocobra/character-builder-next',
          imageA: charLoad,
          imageB: charView,
+         imgDisplay: 'column'
       },
       mp: {
          id: 'mp',
@@ -36,6 +37,7 @@ const App = () => {
          git: 'https://github.com/arbocobra/that-my-mp',
          imageA: mpLoad,
          imageB: mpView,
+         imgDisplay: 'column'
       },
       verbs: {
          id: 'verbs',
@@ -43,8 +45,10 @@ const App = () => {
          desc: verbsDesc,
          url: 'https://verb-application-client.vercel.app/',
          git: 'https://github.com/arbocobra/verb-application',
+         preview: verbsPreview,
          imageA: verbsLoad,
          imageB: verbsView,
+         imgDisplay: 'row'
       },
       minesweeper: {
          id: 'minesweeper',
@@ -54,6 +58,7 @@ const App = () => {
          git: 'https://github.com/arbocobra/redux-minesweeper',
          imageA: minesLoad,
          imageB: minesView,
+         imgDisplay: 'column'
       },
    };
    const wpDetails = {
@@ -96,29 +101,38 @@ const App = () => {
    }, [displayObj]);
 
    return (
-      <div id='App' className={clsx('app-container flex flex-col justify-start gap-4', {'h-screen overflow-hidden': display})}>
+      <div id='App' className={clsx('app-container flex flex-col justify-start gap-4 mx-auto px-3 py-6', {'h-screen overflow-hidden': display})}>
          <Header />
          <div className='flex flex-col items-center gap-8'>
-            <div className='flex justify-start text-3xl/snug sm:text-4xl/snug font-light'>Natalie Rekai &mdash; Programming Portfolio</div>
-            <div className='flex justify-center flex-wrap gap-6'>
+            <div className='title flex justify-start font-light w-full'>
+               <div><span>Natalie Rekai</span><span>&mdash;</span></div>
+               <div><span>Developer Portfolio</span></div>
+            </div>
+            {/* <div className='title flex justify-start font-light'>Natalie Rekai &mdash; Developer Portfolio</div> */}
+            {/* <div className='flex justify-start text-3xl/snug sm:text-4xl/snug font-light'>Natalie Rekai &mdash; Developer Portfolio</div> */}
+            {/* <div className='flex justify-center flex-wrap gap-6'> */}
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center'> */}
+            <div className='grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 justify-center'>
                {Object.keys(details).map((el, i) => (
                   <Preview
                      key={`preview-${i}`}
                      id={el}
                      open={openDisplay}
-                     image={details[el].imageA}
+                     image={details[el]?.preview || details[el].imageA}
                      title={details[el].title}
                   />
                ))}
-               <div className='placeholder-container' />
-               <div className='placeholder-container' />
+               {/* <div className='placeholder-container' />
+               <div className='placeholder-container' /> */}
             </div>
             <div className='flex flex-col gap-6'>
                <div onClick={toggleAccordion} className='toggle-title-container flex justify-between font-light items-center bg-[#dce1e2] dark:bg-gray-800'>
                   <div>Websites Built Using WordPress</div>
                   {toggleOpen ? <ChevronUpIcon className='size-7'/> : <ChevronDownIcon className='size-7' />}
                </div>
-               <div className={clsx({'flex justify-center flex-wrap gap-6':toggleOpen, 'h-0 overflow-hidden':!toggleOpen})}>
+               <div className={clsx({'grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 justify-center':toggleOpen, 'h-0 overflow-hidden':!toggleOpen})}>
+               {/* <div className='grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 justify-center'> */}
+               {/* <div className={clsx({'flex justify-center flex-wrap gap-6':toggleOpen, 'h-0 overflow-hidden':!toggleOpen})}> */}
                {Object.keys(wpDetails).map((el, i) => (
                   <Preview
                      key={`wp-preview-${i}`}

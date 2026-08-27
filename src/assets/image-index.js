@@ -4,8 +4,11 @@ import charLoad from './images/character-creator-load-preview.png'
 import charView from './images/character-creator-view-preview.png'
 import minesLoad from './images/minesweeper-load-preview.png'
 import minesView from './images/minesweeper-view-preview.png'
-import verbsView from './images/verb-translator-view-preview.png'
-import verbsLoad from './images/verb-translator-load-preview.png'
+import verbsPreview from './images/verb-translator2-preview.png'
+import verbsView from './images/verb-translator2-view-preview.png'
+import verbsLoad from './images/verb-translator2-load-preview.png'
+// import verbsView from './images/verb-translator-view-preview.png'
+// import verbsLoad from './images/verb-translator-load-preview.png'
 import carbonView from './images/carbon-preview.png'
 import senseView from './images/sense-preview.png'
 import mobilityView from './images/mobility-preview.png'
@@ -18,6 +21,7 @@ export default {
    charView,
    minesLoad,
    minesView,
+   verbsPreview,
    verbsLoad,
    verbsView,
    carbonView,

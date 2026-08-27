@@ -6,10 +6,10 @@ const Preview = ({id, open, image, title}) => {
             <div className='preview-image-container'>
                <img src={image} />
             </div>
-            <div className='preview-overlay-container absolute top-0 bottom-0 flex w-full overflow-hidden' />
-            <div className='preview-text-container absolute top-0 bottom-0 flex w-full justify-center overflow-hidden'>
-               <div className='flex justify-center relative'>
-               <div className='text-white absolute flex'>{title}</div>
+            <div className='preview-overlay-container overlay-bg' />
+            <div className='preview-text-container absolute top-0 bottom-0 w-full flex justify-center overflow-hidden'>
+               <div className='flex'>
+                  <div className=''>{title}</div>
                </div>
             </div>
          </div>
