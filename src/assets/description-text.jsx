@@ -9,7 +9,7 @@ export const mpDesc = [
 
 export const verbsDesc = [
 <p>Flashcard-style test of conjugation of irregular Portuguese verbs in present, past, perfect, continuous, imperfect and imperative tense.</p>,
-<p>Built from scratch with REACT, MongoDB, Node, and Express. Designed for browser and mobile.</p>]
+<p>Built from scratch with REACT, MongoDB, Node, and Express, styled with TailWindCSS. Designed for mobile, can be previewed in mobile or browser, React Native application in progress.</p>]
 export const minesweeperDesc = [
 <p>It's like writing a tic-tac-toe application, only harder</p>,
 <p>Classic Minesweeper, built from scratch using REACT and REDUX. Designed for browser and mobile.</p>]
